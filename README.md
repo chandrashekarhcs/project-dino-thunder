@@ -1,7 +1,6 @@
-Below is a sample README.md that you could use for the “project-dino-thunder” repository, based on the visible file structure and typical usage of Vite, Tailwind CSS, and TypeScript. Feel free to adjust any sections to reflect your project’s actual goals, features, and usage details.
-
 Project Dino Thunder
-A Vite-powered, TypeScript-based project scaffold that appears to integrate Tailwind CSS. The goal of this project may be to build a dynamic or interactive web application—potentially dinosaur-themed—though you can customize it however you like.
+A Vite-powered, TypeScript-based project scaffold integrates Tailwind CSS. 
+The goal of this project is to build a dynamic web application to features some dinosaurs and its fun facts with a robust spooky-themed 
 
 Table of Contents
 Overview
