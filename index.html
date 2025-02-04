@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Winn - Premium Tax Solutions</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+        :root {
+            --primary: #14B8A6;
+            --primary-dark: #0F766E;
+            --secondary: #0F172A;
+            --accent: #E2E8F0;
+            --gold: #B4934C;
+            --platinum: #E5E7EB;
+            --dark-blue: #1E293B;
+            --text-primary: #334155;
+            --text-secondary: #64748B;
+            --gradient-start: #0F766E;
+            --gradient-end: #0D9488;
+            --card-bg: rgba(255, 255, 255, 0.98);
+            --border-radius: 16px;
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #FFFFFF;
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Premium Navbar */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 4rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            letter-spacing: -0.5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            left: -16px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Luxury Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 4rem 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 1000px;
+            height: 1000px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+        }
+
+        .hero::before {
+            top: -400px;
+            right: -200px;
+        }
+
+        .hero::after {
+            bottom: -400px;
+            left: -200px;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            padding: 4rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -1px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards 0.3s;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s forwards 0.5s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Premium Service Cards */
+        .services {
+            padding: 10rem 4rem;
+            background: #FFFFFF;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--platinum);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        .service-card:hover::before {
+            opacity: 0.02;
+        }
+
+        .service-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .service-card:hover i {
+            transform: scale(1.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        /* Luxury Achievement Section */
+        .achievements {
+            padding: 8rem 4rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .achievement-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            padding: 3rem 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .achievement-item h3 {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .achievement-item p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+        }
+
+        /* Premium Testimonials */
+        .testimonials {
+            padding: 10rem 4rem;
+            background: #FFFFFF;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--platinum);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            font-size: 4rem;
+            color: var(--primary);
+            opacity: 0.1;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        .testimonial-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .client-name {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .rating {
+            margin-top: 1.5rem;
+            color: var(--gold);
+        }
+
+        /* Premium Footer */
+        footer {
+            background: var(--secondary);
+            padding: 6rem 4rem;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, 
+                transparent 0%, 
+                rgba(255,255,255,0.1) 50%,
+                transparent 100%);
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            margin-top: 3rem;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+        }
+
+        /* Premium CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent,
+                rgba(255,255,255,0.2),
+                transparent);
+            transform: translateX(-100%);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            background: var(--primary);
+            color: white;
+        }
+
+        .cta-button:hover::before {
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+
+            .services,
+            .achievements,
+            .testimonials {
+                padding: 6rem 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                padding: 6rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content {
+                padding: 2rem;
+            }
+
+            .services-grid,
+            .achievements-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Luxury Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-animate {
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Tax Winn</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero gradient-animate" id="home">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>Welcome to Tax Winn</h1>
+            <p>Hassle-free Tax Solutions for Individuals and Businesses</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Our Services</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up">
+                <i class="fas fa-file-alt"></i>
+                <h3>IT Returns</h3>
+                <p>Seamless and accurate Income Tax Return filing for individuals and businesses.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-receipt"></i>
+                <h3>GST Returns</h3>
+                <p>Efficient GST return filing to ensure compliance with tax regulations.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-percent"></i>
+                <h3>TDS Returns</h3>
+                <p>Accurate and timely filing of TDS returns to avoid penalties.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements gradient-animate">
+        <div class="achievements-grid">
+            <div class="achievement-item floating" data-aos="fade-up">
+                <h3>10+</h3>
+                <p>Years of Service</p>
+            </div>
+            <div class="achievement-item floating" data-aos="fade-up" data-aos-delay="100">
+                <h3>15K+</h3>
+                <p>Happy Customers</p>
+            </div>
+            <div class="achievement-item floating" data-aos="fade-up" data-aos-delay="200">
+                <h3>20K+</h3>
+                <p>Files Processed</p>
+            </div>
+            <div class="achievement-item floating" data-aos="fade-up" data-aos-delay="300">
+                <h3>100%</h3>
+                <p>Success Rate</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Client Testimonials</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-aos="fade-up">
+                <p>"Tax Winn made my tax filing process so easy and stress-free. Their team is professional and very helpful!"</p>
+                <p class="client-name">- Ramesh Kumar</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <p>"I highly recommend Tax Winn for their excellent GST return services. They are reliable and efficient."</p>
+                <p class="client-name">- Priya Sharma</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <p>"The best tax consultants I have worked with. They saved me a lot of time and effort. Thank you, Tax Winn!"</p>
+                <p class="client-name">- Anil Mehta</p>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Tax Winn. All rights reserved.</p>
+        <p>Email: support@taxwinn.com | Phone: 82776 61010</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            hero.style.transform = `translateY(${scrolled * 0.4}px)`;
+        });
+    </script>
+</body>
+</html>
