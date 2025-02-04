@@ -73,8 +73,8 @@ Project Dino Thunder is a **spooky** web-based informational gallery aimed at ed
 - **vite.config.ts**: Vite configuration for dev server & build settings.  
 - **tailwind.config.js**: Tailwind customization (colors, breakpoints, etc.).  
 - **tsconfig.json**: TypeScript config controlling compilation and strictness.  
-- **config.json**: Possible custom settings for the spooky environment or dinosaur data.  
-- **src/data/dinoData.ts**: (Example) Where dinosaur data might be stored.
+- **config.json**:custom settings for the spooky environment.  
+- **src/data/dinoData.ts**: (Example) Where dinosaur data be stored.
 
 ---
 
@@ -188,7 +188,7 @@ Here’s an example of how to add a new dinosaur to the project:
 ---
 
 ## License
-Currently, no explicit license is provided. Consider adding an [MIT License](https://opensource.org/licenses/MIT) or similar for clarity. If you intend for others to use or modify this project, please specify guidelines accordingly.
+Currently, no explicit license is provided.
 
 ---
 
